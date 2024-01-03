@@ -18,15 +18,14 @@ The function uses a `static variable` to store the remaining characters from the
 char *line;
 int fd = open("example.txt", O_RDONLY); // Open your file (replace "example.txt" with your file name)
 
-while ((line = get_next_line(fd)) != NULL) {
-    // Process the line
+while ((line = get_next_line(fd)) != NULL)
+{
     printf("%s", line);
-    free(line); // Remember to free the allocated memory
+    free(line);
 }
 
-close(fd); // Close the file descriptor when done
+close(fd);
 ``` 
-
 
 ## Buffer size
 The size of the buffer used to read from the file descriptor. If not specified, the default value is 42.
