@@ -14,12 +14,19 @@ The function uses a `static variable` to store the remaining characters from the
 
 ### Example Usage
 
-`char *line;
-while ((line = get_next_line(fd)) != NULL)
-{
+```c
+char *line;
+int fd = open("example.txt", O_RDONLY); // Open your file (replace "example.txt" with your file name)
+
+while ((line = get_next_line(fd)) != NULL) {
+    // Process the line
     printf("%s", line);
-    free(line);
-}`
+    free(line); // Remember to free the allocated memory
+}
+
+close(fd); // Close the file descriptor when done
+``` 
+
 
 ## Buffer size
 The size of the buffer used to read from the file descriptor. If not specified, the default value is 42.
@@ -35,4 +42,3 @@ The project includes a bonus version of get_next_line, which can read from multi
 
 ## Used Tests
 - Francinette: https://github.com/xicodomingues/francinette
-- 
